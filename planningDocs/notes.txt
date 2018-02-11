@@ -1,0 +1,120 @@
+Components:
+1. Pattern
+2. Tie Up - receives user input for number of treadles and heddles
+3. Heddle - displays squares based on number of treadles receives user input for tie up pattern
+4. Treadling Sequence - displays starting block, allows users to add blocks to a loop and displays ending block
+5. Treadling Block - receives user input for block info, allows user to add sheds
+6. Shed - receives user input for treadle to activate for this shed
+
+Hierarchy:	
+Pattern 
+	Tie Up
+		Heddle
+	Treadling Sequence
+		Treadling Block
+			Shed
+
+Data Structure for Pattern:
+{
+	id: 88,
+	name: "Goose Eye",
+	treadles: 6,
+	state:				{
+							current_treadling_sequence: loop_blocks,
+							current_block_index: 2,
+							current_shed_index: 6,
+							current_repeat_index: 0
+						},
+
+	tie_up:
+						{
+							heddles: [
+										{1,0,0,1,1,0},
+										{1,0,0,1,1,0},
+										{1,0,0,1,1,0},
+										{1,0,0,1,1,0},
+									 ]
+
+						},
+
+	treadling_sequence:
+						{ 
+							starting_blocks: 
+												[
+													{   repeat: 1,
+														note: "Use white",
+														sheds: [ // SHOULD PROBABLY STORE ALL TREADLES FOR EACH SHED LIKE THIS... RIGHT?
+															{1,0,0,0,0,0},
+															{0,1,0,0,0,0},
+															{0,0,1,0,0,0},
+															{0,0,0,1,0,0},
+															{0,0,0,0,1,0},
+															{0,0,0,0,0,1},
+															{0,0,0,0,1,0},
+															{0,0,0,1,0,0},
+														]
+													}
+												],
+							loop_blocks: 
+												[
+													{   repeat: 2,
+														note: "Use white",
+														sheds: [
+															{treadle: 1},
+															{treadle: 2},
+															{treadle: 3},
+															{treadle: 4},
+															{treadle: 4},
+															{treadle: 3},
+															{treadle: 2},
+															{treadle: 1},
+														]
+													},
+													{   repeat: 6,
+														note: "Use white",
+														sheds: [
+															{treadle: 1},
+															{treadle: 2},
+															{treadle: 3},
+															{treadle: 4},
+															{treadle: 4},
+															{treadle: 3},
+															{treadle: 2},
+															{treadle: 1},
+														]
+													},
+													{   repeat: 2,
+														note: "Use white",
+														sheds: [
+															{treadle: 1},
+															{treadle: 2},
+															{treadle: 3},
+															{treadle: 4},
+															{treadle: 4},
+															{treadle: 3},
+															{treadle: 2},
+															{treadle: 1},
+														]
+													}
+												],
+							ending_blocks:   
+												[
+													{   repeat: 1,
+														note: "Use white",
+														sheds: [
+															{treadle: 1},
+															{treadle: 2},
+															{treadle: 3},
+															{treadle: 4},
+															{treadle: 4},
+															{treadle: 3},
+															{treadle: 2},
+															{treadle: 1},
+														]
+													}
+												],
+						}
+}
+
+
+

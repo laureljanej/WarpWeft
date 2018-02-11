@@ -48,14 +48,6 @@ class Row extends React.Component {
       <div>
         <div className="row">
           {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
         </div>
       </div>
     );
@@ -63,10 +55,30 @@ class Row extends React.Component {
 }
 
 class Pattern extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rows: Array(2).fill(null),
+      columns: Array(6).fill(null),
+    };
+  }
+
+  renderRow() {
+    return ( 
+      <Row columns={this.state.columns}/> 
+    );
+  }
+
+  renderRows(rows) {
+    return ( 
+      rows.map(this.renderRow)
+    );
+  }
+
   render() {
     return (
       <div className="pattern">
-        <Row />
+        {this.renderRows(this.state.rows)}
       </div>
     );
   }
